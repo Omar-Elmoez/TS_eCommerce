@@ -9,22 +9,20 @@ const { product, productImg } = styles;
 const Product = ({ id, title, price, img }: IProduct) => {
   const dispatch = useAppDispatch();
 
-  const [btnClickedNum, setBtnClickedNum] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
-    setIsDisabled(true);
 
     const debounce = setTimeout(() => {
       setIsDisabled(false);
     }, 300);
 
     return () => clearTimeout(debounce);
-  }, [btnClickedNum]);
+  }, [isDisabled]);
 
   const addToCartHandler = () => {
     dispatch(addToCart(id));
-    setBtnClickedNum((prev) => prev + 1);
+    setIsDisabled(true);
   };
 
   return (

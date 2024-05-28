@@ -17,3 +17,26 @@
   align-items: center;
   justify-content: center;
 }
+
+
+@keyframes pumping {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1.4);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.basketpumping {
+  animation: pumping 300ms ease-in-out;
+}

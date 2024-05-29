@@ -40,7 +40,7 @@ const Product = memo(({ id, title, price, img, max, quantity }: IProduct) => {
       </header>
       <section>
         <h2>{title}</h2>
-        <h3>{price} EGP</h3>
+        <h3>{price.toFixed(2)} EGP</h3>
         <p className={maximumNotice}>{availablityMsg}</p>
         <Button
           variant="info"

@@ -7,7 +7,7 @@ const actGetProducts = createAsyncThunk("products/getProducts", async (prefix: s
 
   try {
 
-    const response = await axios.get<TProductsResponse>(`http://localhost:5005/products/?cat_prefix=${prefix}`);
+    const response = await axios.get<TProductsResponse>(`/products/?cat_prefix=${prefix}`);
     return response.data;
 
   } catch (error) {

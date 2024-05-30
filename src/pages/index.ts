@@ -5,5 +5,7 @@ import Products from "./Products";
 import Login from "./Login";
 import Register from "./Register";
 import Error from "./Error";
+import Cart from "./Cart";
 
-export { Home, AboutUs, Categories, Products, Login, Register, Error }
+
+export { Home, AboutUs, Categories, Products, Login, Register, Error, Cart }

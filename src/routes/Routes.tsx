@@ -2,6 +2,7 @@ import { MainLayout } from "@/layouts/MainLayout/MainLayout";
 import ProductsLoader from "@/loaders/Products";
 import {
   AboutUs,
+  Cart,
   Categories,
   Error,
   Home,
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
       {
         path: "about-us",

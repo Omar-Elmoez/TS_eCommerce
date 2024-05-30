@@ -1,5 +1,13 @@
+import { CartItem, CartSubtotalPrice } from "@/components/eCommerce"
+
 const Cart = () => {
-  return <h1>Cart, Hi</h1>
+
+  return <>
+    <CartItem />
+    <CartItem />
+    <CartItem />
+    <CartSubtotalPrice />
+  </>
 }
 
 export default Cart

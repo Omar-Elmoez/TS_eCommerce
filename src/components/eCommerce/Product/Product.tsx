@@ -24,7 +24,7 @@ const Product = memo(({ id, title, price, img, max, quantity }: IProduct) => {
   const availablityMsg =
     remainingitems <= 0
       ? "You reach your limit"
-      : `You can buy ${max - (quantity ?? 0)}`;
+      : `You can buy ${remainingitems}`;
 
   const reachToMax = remainingitems === 0 ? true : false;
 

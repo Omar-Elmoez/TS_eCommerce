@@ -11,3 +11,14 @@ export const getTotalQuantity = createSelector(
     return totalQuantity;
   }
 );
+
+export const getTotalPrice = createSelector(
+  (state: RootState) => state.cart.productsInfo,
+  (productsInfo) => {
+    const totalPrice = productsInfo.reduce((total, product) => {
+      return (total += product.price);
+    }, 0);
+
+    return totalPrice;
+  }
+);

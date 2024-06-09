@@ -12,16 +12,3 @@ export const getTotalQuantity = createSelector(
   }
 );
 
-export const getTotalPrice = createSelector(
-  (state: RootState) => state.cart,
-  ({productsInfo, items}) => {
-    const productsWithQuantity = productsInfo.map((product) => {
-      return {...product, quantity: items[product.id]}
-    })
-    const totalPrice = productsWithQuantity.reduce((total, product) => {
-      return (total += (product.price * product.quantity));
-    }, 0);
-
-    return totalPrice;
-  }
-);

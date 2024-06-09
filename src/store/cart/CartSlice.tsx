@@ -6,8 +6,8 @@ const initialState: ICartState = {
   items: {},
   productsInfo: [],
   loading: "idle",
-  error: null
-}
+  error: null,
+};
 
 const cartSlice = createSlice({
   name: "cart",
@@ -18,31 +18,36 @@ const cartSlice = createSlice({
     },
 
     updateQuantity: (state, action) => {
-      state.items[action.payload.id] = action.payload.quantity
-    }
+      state.items[action.payload.id] = action.payload.quantity;
+    },
+
+    removeFromCart: (state, action) => {
+      delete state.items[action.payload];
+      state.productsInfo = state.productsInfo.filter(
+        (item) => item.id !== action.payload
+      );
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(actGetProductsWithItems.pending, (state) => {
       state.loading = "pending";
-      state.error = null
+      state.error = null;
     }),
+      builder.addCase(actGetProductsWithItems.fulfilled, (state, action) => {
+        state.loading = "succeeded";
+        state.productsInfo = action.payload;
+      }),
+      builder.addCase(actGetProductsWithItems.rejected, (state, action) => {
+        state.loading = "failed";
+        if (action.payload && typeof action.payload === "string") {
+          state.error = action.payload;
+        }
+      });
+  },
+});
 
-    builder.addCase(actGetProductsWithItems.fulfilled, (state, action) => {
-      state.loading = "succeeded";
-      state.productsInfo = action.payload
-    }),
+export { actGetProductsWithItems };
 
-    builder.addCase(actGetProductsWithItems.rejected, (state, action) => {
-      state.loading = "failed";
-      if (action.payload && typeof action.payload === "string") {
-        state.error = action.payload
-      }
-    })
-  }
-})
+export const { addToCart, updateQuantity, removeFromCart } = cartSlice.actions;
 
-export { actGetProductsWithItems }
-
-export const { addToCart, updateQuantity } = cartSlice.actions
-
-export default cartSlice.reducer
+export default cartSlice.reducer;

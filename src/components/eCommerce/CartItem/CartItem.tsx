@@ -1,3 +1,4 @@
+import React, { memo } from "react";
 import { Form, Button } from "react-bootstrap";
 import styles from "./styles.module.css";
 import { ICartItemProps } from "@/types";
@@ -5,7 +6,7 @@ import { ICartItemProps } from "@/types";
 const { cartItem, product, productImg, productInfo, cartItemSelection } =
   styles;
 
-const CartItem = ({
+const CartItem = memo(({
   id,
   img,
   title,
@@ -13,12 +14,17 @@ const CartItem = ({
   quantity,
   max,
   onChangeQuantity,
+  onRemoveItem,
 }: ICartItemProps) => {
   
   const onChangeQuantityHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const quantity = +e.target.value;
     onChangeQuantity(id, quantity);
   };
+
+  const onRemoveItemHandler = () => {
+    onRemoveItem(id);
+  }
 
   return (
     <article className={cartItem}>
@@ -33,6 +39,7 @@ const CartItem = ({
             variant="secondary"
             style={{ color: "white", width: "100px" }}
             className="mt-auto"
+            onClick={onRemoveItemHandler}
           >
             Remove
           </Button>
@@ -51,6 +58,6 @@ const CartItem = ({
       </section>
     </article>
   );
-};
+});
 
 export default CartItem;

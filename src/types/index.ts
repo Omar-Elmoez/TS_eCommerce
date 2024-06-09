@@ -8,6 +8,8 @@ import { TLoading } from "./shared";
 import LoadingProps from "./loading/LoadingProps.types";
 import TGridListProps from "./gridList/gridList.types";
 import ICartState from "./cart/CartState.types";
+import TCartItemListProps from "./cart/CartItemListProps.types";
+import ICartItemProps from "./cart/CartItemProps.types";
 
 export type {
   TResponse,
@@ -19,5 +21,7 @@ export type {
   TLoading,
   LoadingProps,
   TGridListProps,
-  ICartState
+  ICartState,
+  TCartItemListProps,
+  ICartItemProps
 };

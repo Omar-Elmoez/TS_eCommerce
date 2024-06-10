@@ -15,7 +15,6 @@ const actGetProductsWithItems = createAsyncThunk(
       .map(el => `id=${el}`)
       .join("&");
 
-    console.log(formattedIds);
 
     if (!relattedIds.length) {
       return fulfillWithValue([]);

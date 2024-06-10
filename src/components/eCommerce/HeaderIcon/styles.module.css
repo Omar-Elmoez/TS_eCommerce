@@ -1,10 +1,10 @@
-.basketContainer {
+.container {
   position: relative;
   cursor: pointer;
   align-self: flex-end;
 }
 
-.basketQuantity {
+.quantity {
   background-color: #0dcaf0;
   height: 22px;
   width: 22px;
@@ -37,6 +37,6 @@
   }
 }
 
-.basketpumping {
+.pumping {
   animation: pumping 300ms ease-in-out;
 }
